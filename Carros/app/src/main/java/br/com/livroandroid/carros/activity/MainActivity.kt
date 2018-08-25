@@ -1,5 +1,6 @@
 package br.com.livroandroid.carros.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -9,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 
 import br.com.livroandroid.carros.R
+import br.com.livroandroid.carros.domain.TipoCarro
 import br.com.livroandroid.carros.extensions.setupToolbar
 import br.com.livroandroid.carros.extensions.toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -66,13 +68,19 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 toast("Clicou em carros")
             }
             R.id.nav_item_carros_classicos -> {
-                toast("Clicou em carros clássicos")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.Classicos)
+                startActivity(intent)
             }
             R.id.nav_item_carros_esportivos -> {
-                toast("Clicou em carros esportivos")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.Esportivos)
+                startActivity(intent)
             }
             R.id.nav_item_carros_luxo -> {
-                toast("Clicou em carros luxo")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.Luxo)
+                startActivity(intent)
             }
             R.id.nav_item_site_livro -> {
                 toast("Clicou em site do livro")
